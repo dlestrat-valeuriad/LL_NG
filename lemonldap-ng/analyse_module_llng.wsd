@@ -1,0 +1,73 @@
+@startuml
+
+
+actor utilisateur
+participant PortailLLNG
+participant ManagerLLNG
+participant ServiceAuth
+participant ServiceProvider
+
+
+utilisateur -> ServiceProvider : se connecter
+ServiceProvider  -> ManagerLLNG : "est authentifié"
+ServiceProvider  <-- ManagerLLNG : non
+ManagerLLNG -> utilisateur :  rediriger vers le portail
+utilisateur -> PortailLLNG :  acces au portail
+utilisateur -> PortailLLNG : saisie des info de connexion + soumission formulaire
+
+
+PortailLLNG -> PortailLLNG : process
+activate PortailLLNG
+PortailLLNG -> PortailLLNG : controlUrlOrigin
+PortailLLNG -> PortailLLNG :  checkNotifBack
+PortailLLNG -> PortailLLNG :  controlExistingSession
+PortailLLNG -> PortailLLNG :  setMacros
+PortailLLNG -> PortailLLNG :  setLocalGroups
+PortailLLNG -> PortailLLNG :  setPersistentSessionInfo
+PortailLLNG -> PortailLLNG :  removeOther
+PortailLLNG -> PortailLLNG :  grantSession
+PortailLLNG -> PortailLLNG :  store
+PortailLLNG -> PortailLLNG :  buildCookie
+PortailLLNG -> PortailLLNG :  checkNotification
+PortailLLNG -> PortailLLNG :  autoRedirect
+PortailLLNG -> PortailLLNG :  updateStatus
+'#  - authentication module:
+PortailLLNG -> AuthCnamts : authInit
+PortailLLNG -> AuthCnamts : extractFormInfo
+PortailLLNG -> AuthCnamts : setAuthSessionInfo
+PortailLLNG -> AuthCnamts : authenticate
+AuthCnamts -> ServiceAuth : authenticate <<ws rest>>
+AuthCnamts <-- ServiceAuth : "OK/KO + Code erreurs"
+PortailLLNG -> AuthCnamts : authFinish
+PortailLLNG -> AuthCnamts : authPostStore
+'#  - userDB module:
+PortailLLNG -> UserDBCnamts :  userDBInit
+PortailLLNG -> UserDBCnamts :  getUser
+activate UserDBCnamts
+
+UserDBCnamts -> ServiceAuth : "getUser (self->user, self->storePassword ) <<ws rest>>"
+UserDBCnamts <-- ServiceAuth : "info du user en JSON"
+UserDBCnamts -> UserDBCnamts : setter cnamtsAccounts
+deactivate UserDBCnamts
+PortailLLNG -> UserDBCnamts :  setSessionInfo
+activate UserDBCnamts
+UserDBCnamts -> UserDBCnamts : "pour chaque cle de exportedVars  + cnamtsExportedVars mapper l'attribut venant de cnamtsAccounts"
+deactivate UserDBCnamts
+PortailLLNG -> UserDBCnamts :  setGroups
+'#  - passwordDB module:
+PortailLLNG -> PasswordDBCnamts : passwordDBInit
+PortailLLNG -> PasswordDBCnamts : modifyPassword
+'#  - issuerDB module:
+PortailLLNG -> IssuerDBCnamts :  issuerDBInit
+PortailLLNG -> IssuerDBCnamts : issuerForUnAuthUser
+PortailLLNG -> IssuerDBCnamts : issuerForAuthUser
+'#  - MailReset:
+PortailLLNG -> MailResetCnamts : sendPasswordMail
+
+
+deactivate PortailLLNG
+
+
+
+
+@enduml

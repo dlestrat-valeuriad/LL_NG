@@ -1,0 +1,606 @@
+* {
+	margin: 0;
+}
+
+html {
+  font-size: 1rem;
+}
+    
+@font-face {
+    font-family: "Raleway regular";
+    src: url('../fonts/raleway-regular-webfont.woff') format('woff'),
+         url('../fonts/raleway-regular-webfont.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Open sans";
+    src: url('../fonts/opensans-regular-webfont.woff') format('woff'),
+         url('../fonts/opensans-regular-webfont.ttf')  format('truetype');
+}
+@font-face {
+    font-family: "Open sans semi bold";
+    src: url('../fonts/opensans-semibold-webfont.woff') format('woff'),
+         url('../fonts/opensans-semibold-webfont.ttf')  format('truetype');
+}
+@font-face {
+    font-weight: bold;
+    font-family: "Open sans";
+    src: url('../fonts/opensans-bold-webfont.woff') format('woff'),
+         url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+}
+@font-face {
+    font-weight: lighter;
+    font-family: "Open sans light";
+    src: url('../fonts/opensans-light-webfont.woff') format('woff'),
+         url('../fonts/opensans-light-webfont.ttf') format('truetype');
+}
+
+/* définition des typo */
+h1 {
+    color: #003463;
+    font-size: 1.25rem;
+    font-family: "Raleway regular";
+    text-transform: uppercase;
+    text-align: center;
+}
+h2 {
+    font-size: 1.13rem;
+    font-family: "Open sans semi bold";
+	text-transform: uppercase;
+}
+h3 {
+    color: #666666;
+    font-size: 0.88rem;
+    font-family: "Open sans semi bold";
+}
+
+h6 {
+	padding-top: 1.25rem;
+	font-size: 0.9125rem;
+}
+
+/* définition des balises */
+a {
+    color: #005DA8;
+    font-size: 0.81rem;
+    font-family: "Open sans";
+    font-weight: normal;
+}
+body {
+    background-color: #EDEDED;
+}
+
+html, body {
+    height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	margin: 0 auto -3.86rem;
+}
+footer {
+	background-color: #F8F9FA;
+	height: 3.26rem;
+	text-align: center;
+	clear: left;
+}
+
+.push {
+	height: 3.86rem;
+	text-align: center;
+	clear: left;
+}
+
+article {
+	font-family: "Open sans";
+}
+
+hr {
+    margin: 0rem;
+    color: #DDDDDD;
+}
+
+header {
+    background-color: white;
+    height: 1.45rem;
+}
+
+ul {
+    margin: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 1.5rem;
+    padding-top: 0.25rem;
+}
+
+/* définition des classes */
+.logoCNAM {
+    margin: 0rem auto;
+    padding: 0rem;
+    width: 8.5rem;
+    height: 3.2rem;
+    text-align: center;
+    position: relative;
+    background-image: url(/skins/cnamts/images/logo_AM.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 999;
+}
+
+input.imgConnexion {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -2.5rem;
+    width: 80px;
+    height: 80px;
+    border: none;
+    background-image: url(/skins/cnamts/images/bt_connect.svg);
+    background-color: transparent;
+}
+
+input.imgConnexion:hover {
+    background-image: url(/skins/cnamts/images/bt_connect_fb.svg);
+}
+
+input.imgConnexion:focus,.imgConnexion:active {
+    outline: 0;
+}
+
+.container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100%;
+}
+
+.encartTitle{
+    text-align: left;
+    text-indent: 0.94rem;
+}
+
+.thumbnail{
+    background-color: white;
+    margin-left: 0.0rem;
+    padding : 0rem;
+}
+
+.thumbnail a>img, .thumbnail>img{
+    margin : 0rem;
+}
+
+.container-fluid{
+    background-color: white;
+    padding-left: 0.94rem;
+    padding-right: 0.94rem;
+}
+
+.portail{
+    background-color: #EDEDED;
+    padding-left: : 0rem;
+    padding-bottom: 1.6rem;
+    margin-top: 2rem;
+}
+
+.encartBas{
+    background-color: #F8F9FA;
+    padding: 0.0rem;
+    margin-bottom: 0rem;
+}
+
+/* Page de connexion */
+.encartConnexion {
+    background-color: white;
+    text-align: center;
+    margin-top: 0.3125rem;
+    padding-bottom: 2.5rem;
+}
+
+.encartConnexion:before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 49.5%;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(45deg);
+    background-color: #EDEDED;
+    top: -0.5rem;
+}
+
+.cv {
+    padding-top: 1.5625rem;
+    margin-top: 0;
+    padding-bottom: 0.9375rem;
+    margin-bottom: 0;
+}
+
+.infosSaisie {
+    font-family: "Open sans semi bold";
+    font-size: 0.88rem;
+    color: #666666;
+    text-align: center;
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
+}
+
+.ps {
+    margin-top: 1.5625rem;
+    margin-right: auto;
+    margin-bottom: 0.3125rem;
+    margin-left: auto;
+    position: relative;
+    width: 55%;
+    font-size: 1rem;
+    line-height: 2.4rem;
+    font-family: "Open sans light";
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    background-color: #1cb1b9;
+    height: 2.5rem;
+}
+.ps:after{
+    content:'';
+    position: absolute;
+    z-index: 2;
+    left: 49%;
+    bottom: -0.5rem;
+    width: 1rem;
+    height:1rem;
+    transform: rotate(45deg);
+    background-color: #1cb1b9;
+}
+
+.infosConnexion {
+    font-family: "Open sans light";
+    text-transform: uppercase;
+    color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.875em;
+}
+
+.warning {
+	display: none;
+}
+
+.positive {
+	display: none;
+}
+
+.negative {
+    background: #F26864 none repeat scroll 0% 0%;
+}
+
+input.up {
+    #text-transform: uppercase;
+}
+input.up::-webkit-input-placeholder {
+    text-transform: none;
+}
+input.up:-moz-placeholder { 
+        text-transform: none;
+}
+input.up::-moz-placeholder { 
+        text-transform: none;
+}
+input.up:-ms-input-placeholder {
+        text-transform: none;
+}
+
+/** **/
+.input-help {
+    display: none;
+    position: absolute;
+    background: #F26864 none repeat scroll 0% 0%;
+    font-size: 0.875em;
+    width: 12rem;
+    height: 2.5rem;
+    text-align: left;
+    bottom: 0;
+    right: -13rem;
+    padding: 0.25rem;
+    font-family: "Open sans light";
+    padding-left: 1rem;
+    color: white;
+}
+
+.input-help:after {
+    content: "";
+    position: absolute;
+    z-index: 100;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(45deg);
+    top: 0.75rem;
+    background-color: #F26864;
+    left: -0.5rem;
+}
+
+.input-help-pwd {
+    display: none;
+    position: absolute;
+    background: #F26864 none repeat scroll 0% 0%;
+    font-size: 0.875em;
+    width: 9rem;
+    text-align: left;
+    bottom: 0;
+    right: -9rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+    font-family: "Open sans light";
+    padding-left: 1rem;
+    color: white;
+    top: 0;
+}
+
+.input-help-pwd:after {
+    content: "";
+    position: absolute;
+    z-index: 100;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(45deg);
+    top: 0.5rem;
+    background-color: #F26864;
+    left: -0.5rem;
+}
+
+.input-help h4 {
+  margin:0;
+  padding:0;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+.input-help-pwd h4 {
+  margin:0;
+  padding:0;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+/* Always hide the input help when it's pristine */
+input.ng-pristine + .input-help {
+  display: none;
+}
+
+input.ng-pristine + .input-help-pwd {
+  display: none;
+}
+
+/* Hide the invalid box while the input has focus */
+.ng-invalid:focus + .input-help {
+  display: none;
+}
+
+.ng-invalid:focus + .input-help-pwd {
+  display: none;
+}
+
+
+/* Show green border when stuff has been typed in, and its valid */
+.ng-dirty.ng-valid {
+  border-color:#3a7d34;
+}
+
+/* Show red border when stuff has been typed in, but its invalid */
+.ng-dirty.ng-invalid {
+  border-color:#ec3f41;
+}
+
+/* Help hould be green when input is valid */
+.ng-valid + .input-help {
+  border-color:#3a7d34;
+}
+.ng-valid + .input-help::before {
+  color:#3a7d34;
+}
+
+.ng-valid + .input-help-pwd {
+  border-color:#3a7d34;
+}
+.ng-valid + .input-help-pwd::before {
+  color:#3a7d34;
+}
+
+/* Help should show and be red when invalid */
+.ng-invalid + .input-help {
+  display: block;
+  border-color: #ec3f41;
+}
+.ng-invalid + .input-help::before {
+  color: #ec3f41;
+}
+
+.ng-invalid + .input-help-pwd {
+  display: block;
+  border-color: #ec3f41;
+}
+.ng-invalid + .input-help-pwd::before {
+  color: #ec3f41;
+}
+
+/* Set submit button */
+form .btn, form.ng-valid .btn[disabled] {
+  display: none;
+}
+form.ng-invalid .btn[disabled], form.ng-valid .btn {
+  display: inline-block;
+}
+
+.form-horizontal .control-label {
+    width: 6.25rem;
+}
+.form-horizontal .controls {
+  position: relative;
+  margin-left: 7.5rem;
+}
+
+.goPortail {
+    font-family: "Open sans light";
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #1CB0B9;
+    color: white;
+    height: 2rem;
+    line-height: 2rem;
+    border: 1px solid #1CB0B9;
+}
+
+.disconnect {
+    font-family: "Open sans light";
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #ffffff;
+    height: 2rem;
+    line-height: 2rem;
+    color: #2686D4;
+    border: 1px solid #2686D4;
+}
+
+.mainHeader {
+    margin-top: 5.5rem;
+}
+
+.initialhr {
+    position: relative;
+    top: 1.47rem;
+    z-index: 10;
+    border-top: 1px solid #DAE4EB;
+}
+
+.boutonAide {
+    cursor: pointer;
+    margin-top: 0.2rem;
+    margin-left: -0.6rem;
+    padding-left: 0.3em;
+    padding-right: 0.4rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    background-color: #C5D3EB;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.boutonAide2 {
+    cursor: pointer;
+    margin-left: -2.0rem;
+    color: white;
+    font-size: 1.0rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 100%;
+    background-color: #C5D3EB;
+    text-decoration: none;
+    text-decoration-line: none;
+    line-height: 1.35rem;
+}
+
+.boutonAide:hover  {
+    background-color: #005DA8;
+}
+
+.boutonAide2:hover  {
+    background-color: #005DA8;
+}
+
+.form-group {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.mdpOublie {
+	margin-bottom: 1rem;
+}
+
+.mentionsLegales {
+	text-transform: uppercase;
+}
+
+/* Fenetres modales. */
+.modal-header .modal-close-button-wrapper {
+    float:right;
+}
+
+.modal-header .modal-close-button {
+    cursor:pointer;
+    width: 13px;
+    height: 20px;
+    background-image: url(../images/bt_fermer.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 5px;
+}
+
+.modal-content {
+    border-radius:0px;
+}
+
+.modal-body {
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+}
+
+.modal-footer .modal-close-button {
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    border-style: solid;
+    border-width: 0.0625rem;
+    border-color: #DDDDDD;
+    color: #005DA8;
+    background-color:#fff;
+    font-size: 0.81rem;
+    font-family: "Open sans";
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.fl {
+	float: left;
+	margin-left: 0.4rem;
+	margin-right: 0.4rem;
+}
+
+.cb {
+	clear: both;
+}
+
+.center {
+	text-align: center;
+}
+
+.center2 {
+	text-align: center;
+	margin: 0.5rem 0 1rem 0;
+}
+
+table {
+	 margin: 0 auto;
+	 border: 1px solid #005DA8;
+	 padding: 0.5rem;
+}
+
+th {
+	background-color: #2686D4;
+	color: #F8F9FA;
+	padding: 0.5rem;
+}
+
+td {
+	padding: 0 0.5rem 0 0.5rem;
+}
+
+.large {
+	width: 100%;
+}

@@ -1,0 +1,38 @@
+version: '2'
+services:
+  
+  lemonldap-ng:
+    build: "lemonldap-ng"
+    ports:
+      - "8081:80" 
+    expose:
+      - "80"  
+    volumes:
+      - "/vagrant/src/proto-connexion-docker/lemonldap-ng/conf:/var/lib/lemonldap-ng/conf"
+      - "/vagrant/src/proto-connexion-docker/lemonldap-ng/lemonldap-ng-conf:/etc/lemonldap-ng"
+    extra_hosts:
+      - "auth-proto.credi-ouest.cnamts.fr:127.0.0.1"
+      - "manager-proto.credi-ouest.cnamts.fr:127.0.0.1"
+      - "reload-proto.credi-ouest.cnamts.fr:127.0.0.1"
+    networks:
+      default:
+        aliases: 
+          - lemonldap-ng
+
+  apache-oidc:
+    build: "apache-oidc"
+    ports:
+      - "8082:80"
+    volumes:
+      - "/vagrant/src/proto-connexion/PAM/pam-front:/var/www/html"
+    expose:
+      - "80"
+    networks:
+      default:
+        aliases: 
+          - apache-oidc
+
+
+networks:
+  default:
+  
